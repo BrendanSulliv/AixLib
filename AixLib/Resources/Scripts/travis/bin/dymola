@@ -4,16 +4,15 @@
 cur_dir=`pwd`
 bas_nam=`basename ${cur_dir}`
 sha_dir=`dirname ${cur_dir}`
+docker login -u $CI_DEPLOY_USER -p $CI_DEPLOY_PASSWORD $CI_REGISTRY
 # If the current directory is part of the argument list,
 # replace it with . as the docker may have a different file structure
 arg_lis=`echo $@ | sed -e "s|${cur_dir}|.|g"`
 docker run \
-  --user=${UID} \
-  --mac-address=${MAC_ADDRESS} \
   --detach=false \
   --rm \
   -v ${sha_dir}:/mnt/shared \
-  ${DOCKER_USERNAME}/travis_ubuntu-1604_dymola-2019-x86_64 /bin/bash -c \
+  registry.git.rwth-aachen.de/ebc/ebc_intern/dymola-docker:tag /bin/bash -c \
   "Xvfb :77  -extension RANDR -extension GLX & \
   export DISPLAY=:77.0 && \
   cd /mnt/shared/${bas_nam} && \

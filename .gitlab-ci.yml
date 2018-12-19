@@ -1,0 +1,15 @@
+test_AixLib:
+  image: python:2.7
+  stage: test
+
+  variables:
+    TEST_ARG: "make test-documentation"
+
+  before_script:
+    - export PYTHONIOENCODING=UTF8 # just in case
+    - pip install --upgrade pip setuptools wheel
+    - pip install --only-binary=numpy,scipy,matplotlib numpy scipy matplotlib
+    - pip install git+https://github.com/lbl-srg/BuildingsPy@master
+
+  script:
+    - (cd AixLib/Resources/Scripts/travis && travis_wait 70 $TEST_ARG)
