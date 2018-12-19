@@ -7,11 +7,6 @@ test_docu:
     CI_DEBUG_TRACE: "true"
 
   before_script:
-    - if [[ "$TEST_ARG" == *test-dymola* ]]; then
-         docker login -u $CI_DEPLOY_USER -p $CI_DEPLOY_PASSWORD registry.git.rwth-aachen.de && docker pull registry.git.rwth-aachen.de/ebc/ebc_intern/dymola-docker:tag;
-         chmod +x Buildings/Resources/Scripts/travis/bin/dymola;
-         cp Buildings/Resources/Scripts/travis/bin/dymola $HOME/bin/;
-      fi;
     - apt-get -qq update
     - apt-get -qq install -y tidy
     - export PYTHONIOENCODING=UTF8 # just in case
@@ -31,11 +26,10 @@ test_Air:
     CI_DEBUG_TRACE: "true"
 
   before_script:
-    - if [[ "$TEST_ARG" == *test-dymola* ]]; then
-         docker login -u $CI_DEPLOY_USER -p $CI_DEPLOY_PASSWORD registry.git.rwth-aachen.de && docker pull registry.git.rwth-aachen.de/ebc/ebc_intern/dymola-docker:tag;
-         chmod +x AixLib/Resources/Scripts/travis/bin/dymola;
-         sudo cp AixLib/Resources/Scripts/travis/bin/dymola $HOME/bin/;
-      fi;
+
+    - docker login -u $CI_DEPLOY_USER -p $CI_DEPLOY_PASSWORD registry.git.rwth-aachen.de && docker pull registry.git.rwth-aachen.de/ebc/ebc_intern/dymola-docker:tag
+    - chmod +x AixLib/Resources/Scripts/travis/bin/dymola
+    - cp AixLib/Resources/Scripts/travis/bin/dymola $HOME/bin/
     - apt-get -qq update
     - apt-get -qq install -y tidy
     - export PYTHONIOENCODING=UTF8 # just in case
