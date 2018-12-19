@@ -6,6 +6,7 @@ test_AixLib:
     TEST_ARG: "make test-documentation"
 
   before_script:
+    - apt-get -qq update
     - apt-get -qq install -y tidy
     # - apt-get install tidy
     - export PYTHONIOENCODING=UTF8 # just in case
