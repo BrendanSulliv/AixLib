@@ -10,8 +10,8 @@ test_docu:
     # CI_DEBUG_TRACE: "true"
 
   before_script:
-    - sudo apt-get update
-    - sudo apt-get install -y tidy
+    - apt-get -qq update
+    - apt-get -qq install -y tidy
     - export PYTHONIOENCODING=UTF8 # just in case
     - pip install --upgrade pip setuptools wheel
     - pip install --only-binary=numpy,scipy,matplotlib numpy scipy matplotlib
@@ -35,9 +35,10 @@ test_Air:
 
     - docker login -u "$CI_DEPLOY_USER" -p "$CI_DEPLOY_PASSWORD" registry.git.rwth-aachen.de && docker pull registry.git.rwth-aachen.de/ebc/ebc_intern/dymola-docker:tag
     - chmod +x AixLib/Resources/Scripts/travis/bin/dymola
-    - cp AixLib/Resources/Scripts/travis/bin/dymola $HOME/bin/dymola
-    - sudo apt-get -qq update
-    - sudo apt-get -qq install -y tidy
+    - mkdir $HOME/bin
+    - cp AixLib/Resources/Scripts/travis/bin/dymola $HOME/bin/
+    - apt-get -qq update
+    - apt-get -qq install -y tidy
     - export PYTHONIOENCODING=UTF8 # just in case
     - pip install --upgrade pip setuptools wheel
     - pip install --only-binary=numpy,scipy,matplotlib numpy scipy matplotlib
