@@ -50,7 +50,7 @@ test_Air:
     - docker
 
   variables:
-    TEST_ARG: "make test-dymola PACKAGE=\"AixLib.{Air,Examples}\""
+    TEST_ARG: "make test-dymola PACKAGE=\"AixLib.ThermalZones.ReducedOrder\""
     # CI_DEBUG_TRACE: "true"
 
   before_script:
