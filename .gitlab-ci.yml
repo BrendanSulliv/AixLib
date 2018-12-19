@@ -1,5 +1,5 @@
 test_docu:
-  # image: python:2.7
+  image: python:2.7
   stage: test
 
   services:
@@ -21,7 +21,7 @@ test_docu:
     - (cd AixLib/Resources/Scripts/travis && $TEST_ARG)
 
 test_Air:
-  # image: python:2.7
+  image: python:2.7
   stage: test
 
   services:
@@ -35,7 +35,7 @@ test_Air:
 
     - docker login -u "$CI_DEPLOY_USER" -p "$CI_DEPLOY_PASSWORD" registry.git.rwth-aachen.de && docker pull registry.git.rwth-aachen.de/ebc/ebc_intern/dymola-docker:tag
     - chmod +x AixLib/Resources/Scripts/travis/bin/dymola
-    - cp AixLib/Resources/Scripts/travis/bin/dymola $HOME/bin/
+    - cp AixLib/Resources/Scripts/travis/bin/dymola $HOME/bin/dymola
     - sudo apt-get -qq update
     - sudo apt-get -qq install -y tidy
     - export PYTHONIOENCODING=UTF8 # just in case
