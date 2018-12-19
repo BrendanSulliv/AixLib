@@ -12,4 +12,4 @@ test_AixLib:
     - pip install git+https://github.com/lbl-srg/BuildingsPy@master
 
   script:
-    - (cd AixLib/Resources/Scripts/travis && travis_wait 70 $TEST_ARG)
+    - (cd AixLib/Resources/Scripts/travis && $TEST_ARG)
