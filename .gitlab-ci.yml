@@ -83,9 +83,6 @@ dymola-docker:
     - python3 -V               # Print out python version for debugging
     - sudo apt update
     - sudo apt install -y python3-pip
-    - python3 -m pip install virtualenv
-    - virtualenv venv
-    - source venv/bin/activate
     - export PYTHONIOENCODING=UTF8 # just in case
     - python3 -m pip install --upgrade pip setuptools wheel
     - python3 -m pip install --only-binary=numpy,scipy,matplotlib numpy scipy matplotlib
