@@ -81,6 +81,7 @@ dymola-docker:
     # - apt-get -qq install -y tidy
     - python -V               # Print out python version for debugging
     - python3 -V               # Print out python version for debugging
+    - dir
     - sudo apt update
     - sudo apt install -y python3-pip
     - export PYTHONIOENCODING=UTF8 # just in case
@@ -89,5 +90,5 @@ dymola-docker:
     - python3 -m pip install --user git+https://github.com/lbl-srg/BuildingsPy@master
 
   script:
-    - cd AixLib && python3 AixLib/Resources/Scripts/runUnitTests.py --batch --single-package AixLib.ThermalZones\ --tool dymola
+    - python3 AixLib/Resources/Scripts/runUnitTests.py --batch --single-package AixLib.ThermalZones\ --tool dymola
  
