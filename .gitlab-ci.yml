@@ -79,6 +79,10 @@ dymola-docker:
     - Xvfb :77 -extension RANDR -extension GLX & export DISPLAY=:77.0 &&
     # - apt-get -qq update
     # - apt-get -qq install -y tidy
+    - python -V               # Print out python version for debugging
+    - python -m pip install virtualenv
+    - virtualenv venv
+    - source venv/bin/activate
     - export PYTHONIOENCODING=UTF8 # just in case
     - pip install --upgrade pip setuptools wheel
     - pip install --only-binary=numpy,scipy,matplotlib numpy scipy matplotlib
