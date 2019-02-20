@@ -77,9 +77,6 @@ dymola-docker:
     -  docker
   before_script:
     - Xvfb :77 -extension RANDR -extension GLX & export DISPLAY=:77.0 &&
-    - chmod +x AixLib/Resources/Scripts/travis/bin/dymola
-    - mkdir $HOME/bin
-    - cp AixLib/Resources/Scripts/travis/bin/dymola $HOME/bin/
     - apt-get -qq update
     - apt-get -qq install -y tidy
     - export PYTHONIOENCODING=UTF8 # just in case
