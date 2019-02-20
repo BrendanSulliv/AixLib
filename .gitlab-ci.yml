@@ -75,7 +75,7 @@ dymola-docker:
   stage: test
   services:
     -  docker
-  script:
+  before_script:
     - Xvfb :77 -extension RANDR -extension GLX & export DISPLAY=:77.0 &&
     - chmod +x AixLib/Resources/Scripts/travis/bin/dymola
     - mkdir $HOME/bin
