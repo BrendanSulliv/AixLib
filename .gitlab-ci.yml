@@ -80,6 +80,7 @@ dymola-docker:
     # - apt-get -qq update
     # - apt-get -qq install -y tidy
     - python -V               # Print out python version for debugging
+    - python3 -V               # Print out python version for debugging
     - python -m pip install virtualenv
     - virtualenv venv
     - source venv/bin/activate
