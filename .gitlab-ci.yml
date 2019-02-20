@@ -89,5 +89,5 @@ dymola-docker:
     - python -m pip install --user git+https://github.com/lbl-srg/BuildingsPy@master
 
   script:
-    - python AixLib/Resources/Scripts/runUnitTests.py --batch --single-package AixLib.ThermalZones --tool dymola
+    - cd AixLib && python Resources/Scripts/runUnitTests.py --batch --single-package AixLib.ThermalZones --tool dymola
  
