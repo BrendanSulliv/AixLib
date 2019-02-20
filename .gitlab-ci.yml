@@ -70,9 +70,9 @@ test_Air:
     - (cd AixLib/Resources/Scripts/travis && $TEST_ARG)
 
 
- dymola-docker:
-    image: registry.git.rwth-aachen.de/ebc/ebc_intern/dymola-docker:Dymola2019
-    stage: analysis
+dymola-docker:
+  image: registry.git.rwth-aachen.de/ebc/ebc_intern/dymola-docker:Dymola2019
+  stage: test
   services:
     -  docker
   script:
