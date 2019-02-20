@@ -86,7 +86,7 @@ dymola-docker:
     - export PYTHONIOENCODING=UTF8 # just in case
     - python3 -m pip install --upgrade pip setuptools wheel
     - python3 -m pip install --user --only-binary=numpy,scipy,matplotlib numpy scipy matplotlib
-    - python3 -m pip install git+https://github.com/lbl-srg/BuildingsPy@master
+    - python3 -m pip install --user git+https://github.com/lbl-srg/BuildingsPy@master
 
   script:
     - cd AixLib && python3 AixLib/Resources/Scripts/runUnitTests.py --batch --single-package AixLib.ThermalZones\ --tool dymola
