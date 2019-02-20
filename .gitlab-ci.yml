@@ -81,14 +81,14 @@ dymola-docker:
     # - apt-get -qq install -y tidy
     - python -V               # Print out python version for debugging
     - python3 -V               # Print out python version for debugging
-    - python -m pip install virtualenv
+    - python3 -m pip install virtualenv
     - virtualenv venv
     - source venv/bin/activate
     - export PYTHONIOENCODING=UTF8 # just in case
-    - pip install --upgrade pip setuptools wheel
-    - pip install --only-binary=numpy,scipy,matplotlib numpy scipy matplotlib
-    - pip install git+https://github.com/lbl-srg/BuildingsPy@master
+    - python3 -m pip install --upgrade pip setuptools wheel
+    - python3 -m pip install --only-binary=numpy,scipy,matplotlib numpy scipy matplotlib
+    - python3 -m pip install git+https://github.com/lbl-srg/BuildingsPy@master
 
   script:
-    - cd AixLib && python AixLib/Resources/Scripts/runUnitTests.py --batch --single-package AixLib.ThermalZones\ --tool dymola
+    - cd AixLib && python3 AixLib/Resources/Scripts/runUnitTests.py --batch --single-package AixLib.ThermalZones\ --tool dymola
  
