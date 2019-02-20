@@ -82,7 +82,7 @@ dymola-docker:
     - python -V               # Print out python version for debugging
     - python3 -V               # Print out python version for debugging
     - sudo apt update
-    - sudo apt install python3-pip
+    - sudo apt install -y python3-pip
     - python3 -m pip install virtualenv
     - virtualenv venv
     - source venv/bin/activate
