@@ -40,3 +40,25 @@ test_dymola_boundaryconditions:
   script:
     - cd AixLib && python Resources/Scripts/runUnitTests.py --batch --single-package AixLib.BoundaryConditions.SolarGeometry.Examples --tool dymola
 
+test_dymola_AHU:
+  image: registry.git.rwth-aachen.de/ebc/ebc_intern/dymola-docker:conda-integration
+  stage: test
+  services:
+    -  docker
+  variables:
+    CI_DEBUG_TRACE: "true"
+
+  before_script:
+    - Xvfb :77 -extension RANDR -extension GLX & export DISPLAY=:77.0 &&
+    - export PIP_CACHE_DIR="/opt/cache/pip"
+    - conda create -n python27 python=2.7 -y
+    - source activate python27
+    - python -V               # Print out python version for debugging
+    - dir
+    - conda install numpy scipy matplotlib -y
+    - export PYTHONIOENCODING=UTF8 # just in case
+    - pip install git+https://github.com/lbl-srg/BuildingsPy@master
+
+  script:
+    - cd AixLib && python Resources/Scripts/runUnitTests.py --batch --single-package AixLib.Airflow.AirHandlingUnit.Examples --tool dymola
+
