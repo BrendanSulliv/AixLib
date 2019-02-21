@@ -95,6 +95,9 @@ test_dymola_boundaryconditions:
   stage: test
   services:
     -  docker
+  variables:
+    CI_DEBUG_TRACE: "true"
+
   before_script:
     - Xvfb :77 -extension RANDR -extension GLX & export DISPLAY=:77.0 &&
     - export PIP_CACHE_DIR="/opt/cache/pip"
@@ -108,4 +111,4 @@ test_dymola_boundaryconditions:
 
   script:
     - cd AixLib && python Resources/Scripts/runUnitTests.py --batch --single-package AixLib.BoundaryConditions --tool dymola
- 
+
