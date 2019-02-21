@@ -71,7 +71,7 @@ test_Air:
 
 
 dymola-docker:
-  image: registry.git.rwth-aachen.de/ebc/ebc_intern/dymola-docker:Dymola2019
+  image: registry.git.rwth-aachen.de/ebc/ebc_intern/dymola-docker:conda-integration
   stage: test
   services:
     -  docker
