@@ -77,6 +77,7 @@ test_dymola_thermalzones:
     -  docker
   before_script:
     - Xvfb :77 -extension RANDR -extension GLX & export DISPLAY=:77.0 &&
+    - export PIP_CACHE_DIR="/opt/cache/pip"
     - conda create -n python27 python=2.7 -y
     - source activate python27
     - python -V               # Print out python version for debugging
@@ -89,13 +90,14 @@ test_dymola_thermalzones:
     - cd AixLib && python Resources/Scripts/runUnitTests.py --batch --single-package AixLib.ThermalZones --tool dymola
 
 
-test_dymola_airflow:
+test_dymola_boundaryconditions:
   image: registry.git.rwth-aachen.de/ebc/ebc_intern/dymola-docker:conda-integration
   stage: test
   services:
     -  docker
   before_script:
     - Xvfb :77 -extension RANDR -extension GLX & export DISPLAY=:77.0 &&
+    - export PIP_CACHE_DIR="/opt/cache/pip"
     - conda create -n python27 python=2.7 -y
     - source activate python27
     - python -V               # Print out python version for debugging
@@ -105,5 +107,5 @@ test_dymola_airflow:
     - pip install git+https://github.com/lbl-srg/BuildingsPy@master
 
   script:
-    - cd AixLib && python Resources/Scripts/runUnitTests.py --batch --single-package AixLib.Airflow --tool dymola
+    - cd AixLib && python Resources/Scripts/runUnitTests.py --batch --single-package AixLib.BoundaryConditions --tool dymola
  
