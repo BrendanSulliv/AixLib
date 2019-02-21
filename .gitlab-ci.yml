@@ -23,8 +23,8 @@ test_dymola_boundaryconditions:
   stage: test
   services:
     -  docker
-  variables:
-    CI_DEBUG_TRACE: "true"
+  # variables:
+  #   CI_DEBUG_TRACE: "true"
 
   before_script:
     - Xvfb :77 -extension RANDR -extension GLX & export DISPLAY=:77.0 &&
@@ -45,8 +45,8 @@ test_dymola_AHU:
   stage: test
   services:
     -  docker
-  variables:
-    CI_DEBUG_TRACE: "true"
+  # variables:
+  #   CI_DEBUG_TRACE: "true"
 
   before_script:
     - Xvfb :77 -extension RANDR -extension GLX & export DISPLAY=:77.0 &&
