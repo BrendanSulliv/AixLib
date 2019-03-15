@@ -17,6 +17,10 @@ test_dymola_thermalzones:
   script:
     - cd AixLib && python ../bin/runUnitTests.py --batch --single-package AixLib.ThermalZones --tool dymola
 
+  artifacts:
+    paths:
+      - AixLib/simulator-dymola.log
+
 
 test_dymola_boundaryconditions:
   image: registry.git.rwth-aachen.de/ebc/ebc_intern/dymola-docker:conda-integration
@@ -40,6 +44,11 @@ test_dymola_boundaryconditions:
   script:
     - cd AixLib && python ../bin/runUnitTests.py --batch --single-package AixLib.BoundaryConditions.SolarGeometry.Examples --tool dymola
 
+  artifacts:
+    paths:
+      - AixLib/simulator-dymola.log
+
+
 test_dymola_AHU:
   image: registry.git.rwth-aachen.de/ebc/ebc_intern/dymola-docker:conda-integration
   stage: test
@@ -62,3 +71,6 @@ test_dymola_AHU:
   script:
     - cd AixLib && python ../bin/runUnitTests.py --batch --single-package AixLib.Airflow.AirHandlingUnit.Examples --tool dymola
 
+  artifacts:
+    paths:
+      - AixLib/simulator-dymola.log
