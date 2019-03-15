@@ -15,7 +15,7 @@ test_dymola_thermalzones:
     - pip install git+https://github.com/lbl-srg/BuildingsPy@master
 
   script:
-    - cd AixLib && python Resources/Scripts/runUnitTests.py --batch --single-package AixLib.ThermalZones --tool dymola
+    - cd AixLib && python ../bin/runUnitTests.py --batch --single-package AixLib.ThermalZones --tool dymola
 
 
 test_dymola_boundaryconditions:
@@ -38,7 +38,7 @@ test_dymola_boundaryconditions:
     - pip install git+https://github.com/lbl-srg/BuildingsPy@master
 
   script:
-    - cd AixLib && python Resources/Scripts/runUnitTests.py --batch --single-package AixLib.BoundaryConditions.SolarGeometry.Examples --tool dymola
+    - cd AixLib && python ../bin/runUnitTests.py --batch --single-package AixLib.BoundaryConditions.SolarGeometry.Examples --tool dymola
 
 test_dymola_AHU:
   image: registry.git.rwth-aachen.de/ebc/ebc_intern/dymola-docker:conda-integration
@@ -60,5 +60,5 @@ test_dymola_AHU:
     - pip install git+https://github.com/lbl-srg/BuildingsPy@master
 
   script:
-    - cd AixLib && python Resources/Scripts/runUnitTests.py --batch --single-package AixLib.Airflow.AirHandlingUnit.Examples --tool dymola
+    - cd AixLib && python ../bin/runUnitTests.py --batch --single-package AixLib.Airflow.AirHandlingUnit.Examples --tool dymola
 
