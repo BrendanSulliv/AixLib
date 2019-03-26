@@ -43,7 +43,7 @@ test_dymola_boundaryconditions:
     - pip install git+https://github.com/lbl-srg/BuildingsPy@master
 
   script:
-    - cd AixLib && python ../bin/runUnitTests.py --batch --single-package AixLib.BoundaryConditions.SolarGeometry.Examples --tool dymola
+    - cd AixLib && python ../bin/runUnitTests.py --batch --single-package AixLib.BoundaryConditions --tool dymola
 
   artifacts:
     when: on_failure
