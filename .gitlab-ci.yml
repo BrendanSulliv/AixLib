@@ -74,7 +74,7 @@ test_dymola_Airflow:
     - python -V               # Print out python version for debugging
     - dir
     - conda install numpy scipy matplotlib -y
-    - export PYTHONIOENCODING=UTF8 # just in case
+    - export PYTHONIOENCODING=utf-8 # just in case
     - pip install git+https://github.com/lbl-srg/BuildingsPy@master
 
   script:
